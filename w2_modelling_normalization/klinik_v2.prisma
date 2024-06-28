@@ -1,0 +1,31 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum tipe_faskes {
+  FASKES_1
+  FASKES_2
+  RUMAH_SAKIT
+}
+
+model faskes {
+  id     BigInt      @id @default(autoincrement())
+  nama   String      @db.VarChar(255)
+  alamat String      @db.Text
+  type   tipe_faskes
+}
+
+model user {
+  id     BigInt   @id @default(autoincrement())
+  nama   String   @db.VarChar(255)
+  alamat String?  @db.Text
+  dokters dokter[]
+}
+
+model dokter {
+  id       BigInt @id @default(autoincrement())
+  no_induk String @db.VarChar(255)
+  user     user?   @relation(fields: [userId], references: [id])
+  userId   BigInt?
+}

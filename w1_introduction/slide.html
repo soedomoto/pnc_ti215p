@@ -1,0 +1,330 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+
+  <title>Sistem Basis Data</title>
+
+  <meta name="description" content="Sistem Basis Data">
+  <meta name="author" content="Soedomoto">
+
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reset.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/theme/black.css" id="theme">
+
+  <!-- Theme used for syntax highlighting of code -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/highlight/monokai.css">
+</head>
+
+<body>
+  <div class="reveal">
+
+    <!-- Any section element inside of this container is displayed as a slide -->
+    <div class="slides">
+      <section>
+        <div class="r-hstack justify-center align-center">
+          <!-- <div data-id="box1"
+            style="background: transparent; width: 250px; height: 150px; margin: 10px; border-radius: 5px;">
+            <img style="margin: 0;"
+              src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/PHP-logo.svg/320px-PHP-logo.svg.png" />
+          </div> -->
+          <div data-id="box3"
+            style="background: transparent; width: 250px; height: 150px; margin: 10px; border-radius: 5px;">
+            <img src="https://static.slid.es/reveal/logo-v1/reveal-white-text.svg" />
+          </div>
+        </div>
+        <h3>Sistem Basis Data</h3>
+        <h3>Introduction</h3>
+        <p>
+          <small>Created by <a href="http://hakim.se">Aris Prawisudatama</a></small>
+        </p>
+      </section>
+
+      <section data-background-gradient="linear-gradient(to bottom, #283b95, #17b2c3)">
+        <h2>Hello There</h2>
+        <p>
+          I am
+        <h2>Aris Prawisudatama</h2> A Software Developer.
+        </p>
+      </section>
+
+      <section>
+        <h2>Github Repository</h2>
+        <div>
+          <div class="fragment grow">https://github.com/soedomoto/pnc_ti215p</div>
+          <pre data-id="code-animation"><code class="hljs sh" data-trim data-line-numbers>
+            
+          </code></pre>
+        </div>
+      </section>
+
+      <section>
+        <h2>Kenali Audience</h2>
+        <div>
+          <div>Kapan Anda pertama kali membangun database?</div>
+          <div>Untuk keperluan apakah itu?</div>
+          <div>Teknologi apa saja yang digunakan?</div>
+        </div>
+      </section>
+
+      <section>
+        <h2>Kenali Audience</h2>
+        <div>
+          https://quizizz.com/join?gc=226614
+        </div>
+      </section>
+
+      <section>
+        <h2>What is Database?</h2>
+        <div>
+          <div class="fragment grow">Organized collection of data or information</div>
+          <div class="fragment grow">Different data may need different type of database</div>
+          <div class="fragment grow">Choose right database based on how you will organize, store, and access data</div>
+        </div>
+      </section>
+
+      <section>
+        <section>
+          <h2>Types of Databases</h2>
+          <div>
+            <div class="fragment grow">The Idea: How structure the information</div>
+            <div class="fragment grow">Generally divided into two:</div>
+            <div class="fragment grow">Relational Database</div>
+            <div class="fragment grow">Non-Relational Database</div>
+          </div>
+        </section>
+
+        <section>
+          <h2>Relational Database</h2>
+          <div>
+            <div class="fragment grow">Multiple tables</div>
+            <div class="fragment grow">Can be joined</div>
+            <div class="fragment grow">Most common. Widely used</div>
+            <div class="fragment grow">Example: MySQL, PostgreSQL, SQLServer, Oracle</div>
+          </div>
+        </section>
+
+        <section>
+          <h2>Non-Relational Database (NoSQL)</h2>
+          <div>
+            <div class="fragment grow">No Table, No Structure --> Collections</div>
+            <div class="fragment grow">Not support join</div>
+            <div class="fragment grow">Alternative. Depend on use case</div>
+            <div class="fragment grow">Example: MongoDB, Redis</div>
+          </div>
+        </section>
+
+        <section>
+          <h2>NoSQL: Hierarchical Database</h2>
+          <div>
+            <div class="fragment grow">A single object (parent) has one or more objects beneath it (child)</div>
+            <div class="fragment grow">Example: Windows registry</div>
+          </div>
+        </section>
+
+        <section>
+          <h2>NoSQL: Document databases</h2>
+          <div>
+            <div class="fragment grow">JSON, BSON, XML</div>
+            <div class="fragment grow">Example: MongoDB</div>
+          </div>
+        </section>
+
+        <section>
+          <h2>NoSQL: Key-value stores</h2>
+          <div>
+            <div class="fragment grow">Most simple format</div>
+            <div class="fragment grow">Example: Redis</div>
+          </div>
+        </section>
+
+        <section>
+          <h2>NoSQL: Column-oriented databases</h2>
+          <div>
+            <div class="fragment grow">Relational DB -> row based</div>
+            <div class="fragment grow">Column-oriented DB -> column based</div>
+            <div class="fragment grow">Commonly used for analytics</div>
+            <div class="fragment grow">Example: Cassandra</div>
+          </div>
+        </section>
+      </section>
+
+      <section>
+        <h2>Guess, What is The Right Database for:</h2>
+        <div>
+          <div class="fragment grow">Academic administration database?</div>
+          <div class="fragment">Relational Database</div>
+          <div class="fragment grow">Business intelligence dashboard?</div>
+          <div class="fragment">Colum based database: Clickhouse, HBase, Redshift</div>
+          <div class="fragment grow">Access logs or error logs?</div>
+          <div class="fragment">Stream based: Logstash, Kafka, Fluentd</div>
+          <div class="fragment grow">Multi TB of data containing social media data?</div>
+          <div class="fragment">Distributed database: BigTable, DynamoDB, Hadoop</div>
+        </div>
+      </section>
+
+      <section>
+        <h2>Our Focus: Relational Database</h2>
+        <div>
+          <div class="fragment grow">Designed in the 1970s</div>
+          <div class="fragment grow">Structuring information in : Tables, Rows, Colums</div>
+          <div class="fragment grow">May have relationship between tables</div>
+        </div>
+      </section>
+
+      <section>
+        <h2>RDBMS</h2>
+        <div>
+          <div class="fragment grow">Software, where our design is implemented</div>
+          <div class="fragment grow">Example: SQLite, MySQL, PostgreSQL, SQLServer, Oracle</div>
+          <div class="fragment grow">Have different specs, capabilities, dan requirements</div>
+        </div>
+      </section>
+
+      <section>
+        <h2>Relational Database Structure</h2>
+        <div>
+          <div class="fragment grow">Table: collection of entities</div>
+          <div class="fragment grow">In OOP terminology --> collection of similar objects</div>
+          <div class="fragment grow">Row: A single entity or observation</div>
+          <div class="fragment grow">In OOP terminology --> a single object</div>
+          <div class="fragment grow">Column: characteristics of entity</div>
+          <div class="fragment grow">In OOP terminology --> field or attribute</div>
+        </div>
+      </section> 
+
+      <section>
+        <h2>Data Types</h2>
+        <div>
+          <div class="fragment grow">Suitable representation</div>
+          <div class="fragment grow">Storage consumption</div>
+          <div class="fragment grow">Easier to index / locate</div>
+          <div class="fragment grow">Note: Different RDBMS might slightly have different types</div>
+          <div class="fragment grow">Int --> tiny int, small int, int, big int</div>
+          <div class="fragment grow">String --> varchar, nvarchar, text</div>
+          <div class="fragment grow">Decimal --> decimal, float, numeric</div>
+        </div>
+      </section> 
+
+      <section>
+        <h2>Demonstration</h2>
+        <div>
+          <div class="fragment grow">Relational database structure with MySQL</div>
+          <div class="fragment grow">Containing entities: Mahasiswa, Mata Kuliah, Dosen</div>
+        </div>
+      </section>
+
+      <section>
+        <h2>Designing Your Database: Concept</h2>
+        <div>
+          <div class="fragment grow">How your data will be stored and accessed?</div>
+          <div class="fragment grow">What data is it? How about functional requirements?</div>
+          <div class="fragment grow">How to protect your data integrity?</div>
+        </div>
+      </section>
+
+      <section>
+        <h2>Designing Your Database: Key Factors</h2>
+        <div>
+          <div class="fragment grow">Requirement analysis</div>
+          <div class="fragment grow">The purpose of the database</div>
+          <div class="fragment grow">Conceptual model</div>
+          <div class="fragment grow">Logical and phisical design</div>
+        </div>
+      </section>
+
+      <section>
+        <h2>Designing Your Database: Key Considerations</h2>
+        <div>
+          <div class="fragment grow">Think long term --> anticipate potential requirement changes</div>
+          <div class="fragment grow">Follow convention / standard / best practice</div>
+          <div class="fragment grow">Avoid / anticipate anomalies</div>
+          <div class="fragment grow">Avoid / anticipate redundancies</div>
+          <div class="fragment grow">Avoid / anticipate imputation of null values</div>
+        </div>
+      </section>
+
+      <section>
+        <h2>Consideration: Data Integrity</h2>
+        <div>
+          <div class="fragment grow">Must comply during data lifecycle:</div>
+          <div class="fragment grow">Accuracy</div>
+          <div class="fragment grow">Completeness</div>
+          <div class="fragment grow">Consistency</div>
+        </div>
+      </section>
+
+      <section>
+        <h2>Consideration: Data Lifecycle</h2>
+        <div>
+          <div class="fragment grow">Creation</div>
+          <div class="fragment grow">Usability</div>
+          <div class="fragment grow">Modification</div>
+          <div class="fragment grow">Destruction</div>
+        </div>
+      </section>
+
+      <section>
+        <h2>Demonstration</h2>
+        <div>
+          <div class="fragment grow">Data integrity in data lifecycle with MySQL</div>
+          <div class="fragment grow">Containing entities: Mahasiswa, Mata Kuliah, Dosen</div>
+        </div>
+      </section>
+
+      <section>
+        <h2>Summarize</h2>
+        <div>
+          <div class="fragment grow">What is Database?</div>
+          <div class="fragment">Organized collection of data</div>
+          <div class="fragment grow">How is Relational Database Structured?</div>
+          <div class="fragment">Tables, Rows, Fields/Columns</div>
+          <div class="fragment grow">How is Relational Database Administered?</div>
+          <div class="fragment">By using RDBMS</div>
+        </div>
+      </section>
+
+      <section>
+        <section>
+          <h2>Next: Modelling and Normalization</h2>
+          <div>
+            <div class="fragment grow">Use ERD</div>
+            <div class="fragment grow">Use Barker or Chen Notation</div>
+          </div>
+        </section>
+      </section>
+
+    </div>
+
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/zoom/zoom.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/notes/notes.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/search/search.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/markdown/markdown.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/highlight/highlight.js"></script>
+  <script>
+
+    // Also available as an ES module, see:
+    // https://revealjs.com/initialization/
+    Reveal.initialize({
+      controls: true,
+      progress: true,
+      center: true,
+      hash: true,
+
+      // Learn about plugins: https://revealjs.com/plugins/
+      plugins: [RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight]
+    });
+
+  </script>
+</body>
+
+</html>

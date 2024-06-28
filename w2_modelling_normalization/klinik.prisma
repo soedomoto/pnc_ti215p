@@ -1,0 +1,119 @@
+// npx prisma migrate diff --from-schema-datamodel ./blank.prisma --to-schema-datamodel ./klinik.prisma --script
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum tipe_faskes {
+  FASKES_1
+  FASKES_2
+  RUMAH_SAKIT
+}
+
+model faskes {
+  id             BigInt           @id @default(autoincrement())
+  nama           String           @db.VarChar(255)
+  alamat         String           @db.Text
+  tipe           tipe_faskes
+  janji_temu     janji_temu[]
+  dokter_faskes  dokter_faskes[]
+  perawat_faskes perawat_faskes[]
+}
+
+enum jenis_dokter {
+  DOKTER_UMUM
+  DOKTER_GIGI
+  DOKTER_MATA
+}
+
+model user {
+  id      BigInt    @id @default(autoincrement())
+  nama    String    @db.VarChar(255)
+  alamat  String?    @db.Text
+  pasien  pasien[]
+  dokter  dokter[]
+  perawat perawat[]
+}
+
+model pasien {
+  id         BigInt       @id @default(autoincrement())
+  user_id    BigInt
+  user       user        @relation(fields: [user_id], references: [id])
+  no_rekmed  String       @db.VarChar(255)
+  janji_temu janji_temu[]
+}
+
+model dokter {
+  id            BigInt          @id @default(autoincrement())
+  user_id       BigInt
+  user          user           @relation(fields: [user_id], references: [id])
+  no_induk      String          @db.VarChar(255)
+  jenis         jenis_dokter
+  janji_temu    janji_temu[]
+  dokter_faskes dokter_faskes[]
+  pemeriksaan   pemeriksaan[]
+}
+
+model dokter_faskes {
+  id        BigInt @id @default(autoincrement())
+  dokter_id BigInt
+  dokter    dokter @relation(fields: [dokter_id], references: [id])
+  faskes_id BigInt
+  faskes    faskes @relation(fields: [faskes_id], references: [id])
+}
+
+model perawat {
+  id             BigInt           @id @default(autoincrement())
+  user_id        BigInt
+  user           user            @relation(fields: [user_id], references: [id])
+  perawat_faskes perawat_faskes[]
+  pemeriksaan    pemeriksaan[]
+}
+
+model perawat_faskes {
+  id         BigInt  @id @default(autoincrement())
+  perawat_id BigInt
+  perawat    perawat @relation(fields: [perawat_id], references: [id])
+  faskes_id  BigInt
+  faskes     faskes  @relation(fields: [faskes_id], references: [id])
+}
+
+enum jenis_pembiayaan {
+  BIAYA_SENDIRI
+  BPJS
+}
+
+model janji_temu {
+  id               BigInt           @id @default(autoincrement())
+  faskes_id        BigInt
+  faskes           faskes           @relation(fields: [faskes_id], references: [id])
+  dokter_id        BigInt
+  dokter           dokter           @relation(fields: [dokter_id], references: [id])
+  pasien_id        BigInt
+  pasien           pasien           @relation(fields: [pasien_id], references: [id])
+  tanggal          DateTime         @db.Date
+  jam              DateTime         @db.Time
+  jenis_pembiayaan jenis_pembiayaan?
+  pemeriksaan      pemeriksaan[]
+}
+
+model pemeriksaan {
+  id            BigInt     @id @default(autoincrement())
+  janji_temu_id BigInt
+  janji_temu    janji_temu @relation(fields: [janji_temu_id], references: [id])
+  dokter_id     BigInt
+  dokter        dokter     @relation(fields: [dokter_id], references: [id])
+  perawat_id    BigInt?
+  perawat       perawat?    @relation(fields: [perawat_id], references: [id])
+  keluhan       String?     @db.Text
+  diagnosa      String?     @db.Text
+  resep         resep[]
+}
+
+model resep {
+  id             BigInt      @id @default(autoincrement())
+  pemeriksaan_id BigInt
+  pemeriksaan    pemeriksaan @relation(fields: [pemeriksaan_id], references: [id])
+  copy_resep     Bytes?
+}

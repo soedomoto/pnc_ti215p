@@ -1,0 +1,32 @@
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model mahasiswa {
+  id        BigInt   @id @default(autoincrement())
+  nama      String
+  alamat    String   @db.Text
+  email     String   @unique @db.VarChar(100)
+  nik       String   @unique @db.VarChar(50)
+  wilayahId BigInt?  @map("wilayah_id")
+  wilayah   wilayah? @relation("mahasiswas", fields: [wilayahId], references: [id], onUpdate: Cascade, onDelete: SetNull)
+
+  @@unique([email, nik])
+  @@map("mahasiswa")
+}
+
+model wilayah {
+  id        BigInt  @id @default(autoincrement())
+  kdprov    String  @db.VarChar(5)
+  kdkab     String  @db.VarChar(5)
+  kdkec     String  @db.VarChar(5)
+  nnwil     String  @db.VarChar(255)
+  parent_id BigInt?
+  parent    wilayah? @relation("children", fields: [parent_id], references: [id])
+
+  mahasiswa mahasiswa[] @relation("mahasiswas")
+  children  wilayah[]   @relation("children")
+
+  @@unique([kdprov, kdkab, kdkec])
+}

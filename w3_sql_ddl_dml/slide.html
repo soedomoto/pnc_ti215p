@@ -1,0 +1,348 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+
+  <title>Sistem Basis Data</title>
+
+  <meta name="description" content="OOP - Pemrograman Berbasis Web">
+  <meta name="author" content="Soedomoto">
+
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reset.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/theme/black.css" id="theme">
+
+  <!-- Theme used for syntax highlighting of code -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/highlight/monokai.css">
+</head>
+
+<body>
+  <div class="reveal">
+
+    <!-- Any section element inside of this container is displayed as a slide -->
+    <div class="slides">
+      <section>
+        <div class="r-hstack justify-center align-center">
+          <!-- <div data-id="box1"
+            style="background: transparent; width: 250px; height: 150px; margin: 10px; border-radius: 5px;">
+            <img style="margin: 0;"
+              src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/PHP-logo.svg/320px-PHP-logo.svg.png" />
+          </div> -->
+          <div data-id="box3"
+            style="background: transparent; width: 250px; height: 150px; margin: 10px; border-radius: 5px;">
+            <img src="https://static.slid.es/reveal/logo-v1/reveal-white-text.svg" />
+          </div>
+        </div>
+        <h3>Sistem Basis Data</h3>
+        <h3>SQL, DDL, and DML</h3>
+        <p>
+          <small>Created by <a href="http://hakim.se">Aris Prawisudatama</a></small>
+        </p>
+      </section>
+
+      <section data-background-gradient="linear-gradient(to bottom, #283b95, #17b2c3)">
+        <h2>Hello There</h2>
+        <p>
+          I am
+        <h2>Aris Prawisudatama</h2> A Software Developer.
+        </p>
+      </section>
+
+      <section>
+        <h2>Github Repository</h2>
+        <div>
+          <div class="fragment grow">https://github.com/soedomoto/pnc_ti215p</div>
+          <pre data-id="code-animation"><code class="hljs sh" data-trim data-line-numbers>
+            
+          </code></pre>
+        </div>
+      </section>
+
+      <section>
+        <section>
+          <h2>Review: Data Modeling</h2>
+          <div>
+            <div class="fragment grow">A way to visualize a data storage system</div>
+            <div class="fragment grow">Conceptual, Logical, Physical</div>
+          </div>
+        </section>
+        <section>
+          <h2>Review: Data Modeling</h2>
+          <div>
+            <div class="fragment grow">Conceptual: Focused on the overall structure</div>
+            <div class="fragment grow">Logical: Detail of conceptual model</div>
+            <div class="fragment grow">Physical: Vendor-specific of logical model</div>
+          </div>
+        </section>
+        <section>
+          <h2>Review: Data Modeling</h2>
+          <div>
+            <div class="fragment grow">ERD: Diagram containing relationships between multiple entities</div>
+            <div class="fragment grow">Cardinality: minimum and maximum instance involved in relationship</div>
+            <div class="fragment grow">Visualized using Chen or Crow Foot Notation</div>
+            <div class="fragment grow">Crow Foot Notation is more common to use</div>
+          </div>
+        </section>
+        <section>
+          <h2>Review: Data Modeling</h2>
+          <div>
+            <div class="fragment grow">Simplify workflow by using tools:</div>
+            <div class="fragment grow">DBDiagram https://dbdiagram.io/</div>
+            <div class="fragment grow">QuickDBD https://app.quickdatabasediagrams.com/</div>
+            <div class="fragment grow">Prismaliser https://prismaliser.app/</div>
+          </div>
+        </section>
+      </section>
+
+      <section>
+        <section>
+          <h2>SQL: Motivation</h2>
+          <div>
+            <div class="fragment grow">What is in Relational Database?</div>
+            <div class="fragment grow">Structure/Schema and Data</div>
+            <div class="fragment grow">Structure/Schema might be: Created, Altered, Dropped</div>
+            <div class="fragment grow">Data might be: Selected, Inserted, Updated, Deleted</div>
+            <div class="fragment grow">Access might be: Granted and Revoked</div>
+          </div>
+        </section>
+        <section>
+          <h2>SQL</h2>
+          <div>
+            <div class="fragment grow">SQL stands for Structured Query Language</div>
+            <div class="fragment grow">SQL lets you access and manipulate databases</div>
+            <div class="fragment grow">SQL became ANSI in 1986, and ISO 9075 in 1987</div>
+            <div class="fragment grow">Beware of Non-Compatible SQL between vendors</div>
+          </div>
+        </section>
+        <section>
+          <h2>SQL: Motivation</h2>
+          <div>
+            <div class="fragment grow">What kind of SQL to?</div>
+            <div class="fragment grow">Create, Alter, Drop database Structure/Schema: DDL</div>
+            <div class="fragment grow">Select, Insert, Update, Delete Data: DML</div>
+            <div class="fragment grow">Grant and Revoke Access: DCL</div>
+          </div>
+        </section>
+      </section>
+
+      <section>
+        <section>
+          <h2>DDL: Create</h2>
+          <div>
+            <div class="fragment grow">What is in Relational Database?</div>
+          </div>
+        </section>
+        <section>
+          <h2>DDL: Alter</h2>
+          <div>
+            <div class="fragment grow">What is in Relational Database?</div>
+          </div>
+        </section>
+        <section>
+          <h2>DDL: Drop</h2>
+          <div>
+            <div class="fragment grow">What is in Relational Database?</div>
+          </div>
+        </section>
+      </section>
+
+      <section>
+        <section>
+          <h2>DDL: Create</h2>
+          <div>
+            <div class="fragment grow">Create Database</div>
+            <pre>
+              <code data-trim data-noescape>
+                CREATE DATABASE database_name
+              </code>
+            </pre>
+            <div class="fragment grow">Create Table</div>
+            <pre>
+              <code data-trim data-noescape>
+                CREATE TABLE table_name (
+                  field_1 TYPE(length) [NOT NULL] [DEFAULT value],
+                  field_2 TYPE(length) [NOT NULL] [DEFAULT value],
+                  ...,
+                  PRIMARY KEY (field_1)
+                )
+              </code>
+            </pre>
+          </div>
+        </section>
+        <section>
+          <h2>DDL: Create</h2>
+          <div>
+            <div class="fragment grow">Create Index</div>
+            <pre>
+              <code data-trim data-noescape>
+                CREATE INDEX index_name
+                ON table_name (field_1, field_2, ...);
+              </code>
+            </pre>
+          </div>
+          <div>
+            <div class="fragment grow">Create Unique Index</div>
+            <pre>
+              <code data-trim data-noescape>
+                CREATE UNIQUE INDEX index_name
+                ON table_name (field_1, field_2, ...);
+              </code>
+            </pre>
+          </div>
+        </section>
+        <section>
+          <h2>QUIZ</h2>
+          <div>
+            <div class="fragment grow">Table A has index</div>
+            <div class="fragment grow">Table B has no index</div>
+            <div class="fragment grow">Which is FASTER on INSERT?</div>
+            <div class="fragment grow">Which is FASTER on UPDATE?</div>
+            <div class="fragment grow">Which is FASTER on SELECT?</div>
+          </div>
+        </section>
+        <section>
+          <h2>QUIZ</h2>
+          <div>
+            <div class="fragment grow">Table A has index ON column a</div>
+            <div class="fragment grow">Table B has no index ON column b</div>
+            <div class="fragment grow">Assuming both A and B have same structure and data</div>
+            <div class="fragment grow">Which is FASTER on SELECT * FROM a/b WHERE a = ?</div>
+            <div class="fragment grow">Which is FASTER on SELECT * FROM a/b WHERE b = ?</div>
+            <div class="fragment grow">Which is FASTER on SELECT * FROM a/b WHERE c = ?</div>
+          </div>
+        </section>
+        <section>
+          <h2>DDL: Alter</h2>
+          <div>
+            <div class="fragment grow">Alter Table: Add Column</div>
+            <pre>
+              <code data-trim data-noescape>
+                ALTER TABLE table_name
+                ADD column_name TYPE(length) [NOT NULL] [DEFAULT value];
+              </code>
+            </pre>
+            <div class="fragment grow">Alter Table: Drop Column</div>
+            <pre>
+              <code data-trim data-noescape>
+                ALTER TABLE table_name
+                DROP column_name;
+              </code>
+            </pre>
+            <div class="fragment grow">Alter Table: Modify Column</div>
+            <pre>
+              <code data-trim data-noescape>
+                ALTER TABLE table_name
+                MODIFY column_name TYPE(length) [NOT NULL] [DEFAULT value];
+              </code>
+            </pre>
+          </div>
+        </section>
+        <section>
+          <h2>DML: Drop</h2>
+          <div>
+            <div class="fragment grow">Drop Database</div>
+            <pre>
+              <code data-trim data-noescape>
+                DROP DATABASE database_name
+              </code>
+            </pre>
+            <div class="fragment grow">Drop Table</div>
+            <pre>
+              <code data-trim data-noescape>
+                DROP TABLE table_name
+              </code>
+            </pre>
+            <div class="fragment grow">Drop Index</div>
+            <div class="italic">Note: Drop Index is different between vendors</div>
+            <pre>
+              <code data-trim data-noescape>
+                DROP INDEX index_name
+              </code>
+            </pre>
+          </div>
+        </section>
+      </section>
+
+      <section>
+        <section>
+          <h2>DML: Insert</h2>
+          <div>
+            <div class="fragment grow">INSERT SINGLE</div>
+            <pre>
+              <code data-trim data-noescape>
+                INSERT INTO table_name (field_1, field_2, ...)
+                VALUES (value_1, value_2)
+              </code>
+            </pre>
+            <div class="fragment grow">INSERT MULTIPLE</div>
+            <pre>
+              <code data-trim data-noescape>
+                INSERT INTO table_name (field_1, field_2, ...)
+                VALUES (value_1, value_2), (value_1, value_2), ...
+              </code>
+            </pre>
+          </div>
+        </section>
+        <section>
+          <h2>DML: Update</h2>
+          <div>
+            <pre>
+              <code data-trim data-noescape>
+                UPDATE table_name SET 
+                  field_1 = new_value,
+                  field_2 = new_value
+                WHERE field_key = condition
+              </code>
+            </pre>
+          </div>
+        </section>
+        <section>
+          <h2>DML: Delete</h2>
+          <div>
+            <pre>
+              <code data-trim data-noescape>
+                DELETE table_name 
+                WHERE field_key = condition
+              </code>
+            </pre>
+          </div>
+        </section>
+      </section>
+
+      <section>
+        <h2>LETS PRACTICE</h2>
+      </section>
+    </div>
+
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/zoom/zoom.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/notes/notes.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/search/search.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/markdown/markdown.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/highlight/highlight.js"></script>
+  <script>
+
+    // Also available as an ES module, see:
+    // https://revealjs.com/initialization/
+    Reveal.initialize({
+      controls: true,
+      progress: true,
+      center: true,
+      hash: true,
+
+      // Learn about plugins: https://revealjs.com/plugins/
+      plugins: [RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight]
+    });
+
+  </script>
+</body>
+
+</html>
